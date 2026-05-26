@@ -1,126 +1,197 @@
 ---
 name: writing-style
 description: >
-  Apply when writing prose for others — READMEs, design docs, blog posts, public PRs/issues, slides,
+  Apply when writing prose for others: READMEs, design docs, blog posts, public PRs/issues, slides,
   broadcast Slack/email messages, marketing copy, or any user-facing prose that will be read by people
-  beyond the immediate author. Covers register matching (chat / commit / README / academic), no-translation-smell
-  (欧化中文 and Chinese→English calque), no-marketing/buzzword voice, no-AI-essay register, and structural
-  anti-patterns (uniform bullet shapes, unearned comparison tables, problem→solution narrative arcs). Both
-  Chinese and English. Triggers: "write a README", "draft a blog post", "polish this doc", "改一下这段文案",
-  "把这段写成 README", any time the deliverable is prose meant for an external reader.
-  Do NOT use for: chat responses, code comments, internal commit messages, code review notes, or any prose
-  staying inside the immediate working session.
+  beyond the immediate author. Use this skill to match register, write in the target language's own habits,
+  keep technical terms in their canonical form, expose reader-useful information hierarchy, and remove
+  translation smell, marketing filler, AI-essay filler, process narrative, and defensive storytelling.
+  Applies to both Chinese and English. Triggers: "write a README", "draft a blog post", "polish this doc",
+  "改一下这段文案", "把这段写成 README", and any prose deliverable meant for external readers.
+  Do NOT use for: chat responses, code comments, internal commit messages, code review notes, or prose that
+  stays inside the immediate working session.
 ---
 
 # Writing style
 
-Both languages share one bar: write like a native writer in the target register, not like a translator and
-not like an AI essay generator.
+## Core principle
 
-文体定位 for Chinese tech writing: 参照阮一峰、廖雪峰一档，克制、判断显式、术语准确，不戏剧化。
+Reader-facing prose should help the reader understand what the artifact is, what it does, and how to judge or
+use it.
 
-## Register table — match context
+Lead with identity: "we are", "this is", "this does". Define the work through its own frame first. Negative
+examples and banned phrases are diagnostics, not the organizing principle of the final piece.
+
+Write from the reader's side. Expose the information hierarchy the reader needs; leave out the writer's
+working session unless it changes how the reader should use, review, or trust the work.
+
+## Scope
+
+Use this skill for text that will be read beyond the immediate author or current chat:
+
+- READMEs and public docs.
+- Design docs, blog posts, public PRs and issues.
+- Slides, broadcast Slack/email messages, and marketing copy.
+- Polishing or rewriting prose for external readers.
+
+Do not use it for text that stays inside the immediate working session: chat replies, code comments, internal
+commit messages, code review notes, or private scratch writing.
+
+## Register
+
+Match the situation. "Native" means appropriate to the context, not automatically casual.
 
 | Context | Chinese | English |
 |---|---|---|
-| Commit / PR / code comment / design doc | 书面语 (移除 / 优化 / 修复) | formal-concise, verb-first (Remove / Optimize / Fix) |
-| Paper / lab report | 学术书面语 (本文 / 实验表明) | academic (We propose / Results indicate) |
-| README / public docs | 书面语，可有作者判断的语气 | formal but not stiff, authorial judgment OK |
-| Chat / IM | 口语 (改完了 / 跑一下看看) | casual (done / try it / lmk) |
+| Commit / PR / code comment / design doc | 书面语，如“移除”“优化”“修复” | Formal-concise, verb-first, such as Remove / Optimize / Fix |
+| Paper / lab report | 学术书面语，如“本文”“实验表明” | Academic, such as We propose / Results indicate |
+| README / public docs | 书面语，可以有作者判断 | Formal but not stiff; authorial judgment is allowed |
+| Chat / IM | 口语，如“改完了”“跑一下看看” | Casual, such as done / try it / lmk |
 
-Don't mix. Don't equate "native" with "spoken" — a chat reply in 学术书面语 is wrong, but a commit message
-in chat register is also wrong. The split is by *context*, not by a formality dial.
+For Chinese technical writing, aim for a restrained style with explicit judgment and accurate terminology,
+roughly in the register of 阮一峰 or 廖雪峰.
 
-## No translation smell
+## Language
 
-**Chinese-specific markers** (English → Chinese calque):
-- 欧化中文: overuse of 的, unnecessary 被 passives, English-style long pre-modifying clauses, abstract "...性"
-  nouns where a verb would do, "进行 + 动词" used as filler, reflexively translated connectors like
-  "对于...来说" / "在...方面" / "作为一个...".
-- Failing to drop subjects where Chinese would naturally drop them.
-- Em-dash / en-dash 当装饰 ("可在 A、B 之间切换 —— 生产用 A，开发用 B") usually reads better as separate
-  sentences in Chinese; use 冒号、句号 or restructure.
-- 翻译腔结构: "在 ... 的同时"、"通过 ... 实现"、"使得 ... 成为可能".
+Write in the target language's own habits. Chinese should use Chinese sentence shape; English should use
+English sentence shape.
 
-**English-specific markers** (Chinese → English calque):
-- "Make use of X" instead of "use X". "Carry out the operation" instead of "do/run the operation".
-- Empty heads: "the issue of X", "the problem of X", "the situation of X" used as filler.
-- Over-hedging: "may possibly", "could potentially", "it seems that perhaps".
-- Topic-fronting that should be re-anchored: "Regarding the issue of latency, we observed..." →
-  "On latency: we observed...".
+Keep technical terms in their canonical form. In Chinese technical writing, English terms stay English where
+that is how practitioners actually use them: "这个 endpoint", "做 fine-tuning", "改用 virtual scrolling".
+Do not force English phrases into Chinese for style, and do not translate established terms such as QStash,
+wall-clock, LWW, or shadcn/ui just to localize them.
 
-## No marketing / buzzword register
+Keep language consistent. In Chinese prose, reserve English for canonical technical terms, product names,
+APIs, commands, file paths, quoted source text, or cases where the audience would recognize the English form
+faster than a translation. In English prose, use Chinese only when the target readers are expected to know the
+term or when quoting source text.
 
-**Chinese**: 赋能、抓手、闭环、对齐、颗粒度、心智、拉齐、复用、抽象一下 — unless the context is explicitly
-that register. Also avoid 装腔形容词: 极致、无缝、深度、本质、本质上是、生态.
+## Voice
 
-**English**: leverage, synergize, robust, powerful, comprehensive, seamless, blazing fast, production-ready,
-best-in-class — used as marketing filler rather than meaning anything specific.
+Use concrete judgment and observable claims. The voice should feel like a real author making useful choices,
+not like a pitch deck or generated essay.
 
-**Other Chinese anti-patterns:**
-- 三段式排比: "不仅 X，而且 Y，更 Z" / "更 X，更 Y，更 Z".
-- 反问句开篇 / 引导式提问: "你是否曾经..." / "想象一下...".
-- 轻浮 / 口语收尾: "免得返工"、"省时间"、"轻松搞定"、"快速上手"、"跟着 X 走"、"X 也响"、"不漂移"、
-  "一把梭". 在 tagline 行可偶尔保留一处口语化修辞，正式段落里换正式表述。
+Avoid fake authorial drama. Do not invent a founding story, pain narrative, or "we realized..." arc from
+implementation details. If motivation matters and the source material does not provide it, ask the user how to
+frame it; otherwise omit it.
 
-**Fake authorial voice** — these read as marketing voice, not real judgment:
-- 兜售式开场: "想象一下..."、"在这个时代..."、"市面上的工具都没解决 X" / "Existing tools all fail at X, so...".
-- 物化抽象 / 拟人化记账: "把决策记成一本明账" / "让代码自己说话".
-- problem→solution 叙事弧 (设置一个对立面再"破解"它).
+Use direct transitions and real conclusions. Stock connective tissue should earn its place.
 
-## No AI-essay register
+## Structure
 
-**Chinese**: 值得注意的是、综上所述、总的来说、本文将探讨、希望对你有所帮助、如有疑问欢迎讨论.
+Use the structure the content earns. Let the central claim, example, or user-visible behavior set the shape;
+supporting details follow that frame.
 
-**English**: "It's important to note that...", "Furthermore,", "In conclusion,", "Let's dive into...",
-"Hope this helps!", "Feel free to...".
+Prefer these shapes:
 
-## Tech terms stay in their canonical form
+- Lead with a concrete example or demonstration where possible, so the reader sees what using or reading this
+  feels like before the explanation.
+- Weight sections asymmetrically. Important parts get space; standard parts compress; empty parts disappear.
+- Use prose where prose carries meaning better than bullets.
+- State opinions and tradeoffs when they are load-bearing.
+- Present the artifact through its own frame before mentioning rejected alternatives, limitations, or
+  corrections.
 
-In Chinese tech writing, English terms stay English where that's how they're actually used: "这个 endpoint"、
-"做 fine-tuning"、"改用 virtual scrolling". 不为了"国际化"硬塞英文短句，也不为了"本土化"硬翻已成约定的术语
-(QStash、wall-clock、LWW、shadcn/ui). In English, don't over-explain a domain term the audience already knows.
+Keep the result-oriented layer: what changed, what matters, what constraints remain, and what the reader
+should understand or do next. The purpose is to align the reader's model, not to turn the chat session into
+prose.
 
-# Structure — for prose meant for others
+## Motivation, tradeoffs, and limitations
 
-Sentence-level concerns above. This section is about how a piece is organized at the section/paragraph
-level. Applies to text visible to others: READMEs, design docs, blog posts, public issues / PRs, slides,
-commits, broadcast Slack/email.
+Motivation, tradeoffs, and limitations are reader tools, not a default storytelling layer.
 
-## Avoid the AI-template shape
+- Motivation belongs only when the source material or user clearly provides it, or when readers need it to
+  understand the artifact.
+- Tradeoffs should be compressed by default. Explain rejected alternatives only when the design is unusually
+  complex, likely to surprise readers, or needed to prevent misuse.
+- Limitations should be concrete and reader-actionable.
+
+Technical introductions can include why when the real why matters. README is not API documentation; large
+mechanical breakdowns belong in engineering docs such as CLAUDE.md or docs/.
+
+## Diagnostics
+
+Use these checks while editing. They identify places where the prose has drifted away from the reader-facing
+frame.
+
+### Translation smell
+
+Chinese markers:
+
+- Overuse of 的, unnecessary 被 passives, English-style long pre-modifying clauses, and abstract "...性" nouns
+  where a verb would do.
+- Filler such as "进行 + 动词".
+- Reflexively translated connectors such as "对于...来说", "在...方面", and "作为一个...".
+- Keeping subjects where Chinese would naturally drop them.
+- Decorative em dashes where a colon, period, or rewritten sentence would read more naturally.
+- Structures such as "在 ... 的同时", "通过 ... 实现", and "使得 ... 成为可能".
+
+English markers:
+
+- "Make use of X" instead of "use X".
+- "Carry out the operation" instead of "do/run the operation".
+- Empty heads such as "the issue of X", "the problem of X", and "the situation of X".
+- Over-hedging such as "may possibly", "could potentially", and "it seems that perhaps".
+- Topic-fronting that should be re-anchored: "Regarding the issue of latency, we observed..." -> "On latency:
+  we observed...".
+
+### Marketing and buzzword smell
+
+Chinese warning signs:
+
+- 赋能、抓手、闭环、对齐、颗粒度、心智、拉齐、复用、抽象一下, unless the context explicitly uses that register.
+- 装腔形容词 such as 极致、无缝、深度、本质、本质上是、生态.
+- 三段式排比: "不仅 X，而且 Y，更 Z" or "更 X，更 Y，更 Z".
+- 反问句开篇 or 引导式提问: "你是否曾经..." or "想象一下...".
+- Light or slogan-like endings such as "免得返工", "省时间", "轻松搞定", "快速上手", "跟着 X 走", "X 也响",
+  "不漂移", and "一把梭". A short slogan may occasionally keep one colloquial turn; formal paragraphs should
+  use formal wording.
+- 兜售式开场: "想象一下...", "在这个时代...", "市面上的工具都没解决 X".
+- 物化抽象 or 拟人化表达: "把决策记成一本明账", "让代码自己说话".
+
+English warning signs:
+
+- leverage, synergize, robust, powerful, comprehensive, seamless, blazing fast, production-ready,
+  best-in-class, when they stand in for specific meaning.
+- "Existing tools all fail at X, so..." when it creates an unearned problem-solution arc.
+
+### AI-essay smell
+
+Chinese stock phrases:
+
+- 值得注意的是、综上所述、总的来说、本文将探讨、希望对你有所帮助、如有疑问欢迎讨论。
+
+English stock phrases:
+
+- "It's important to note that...", "Furthermore,", "In conclusion,", "Let's dive into...", "Hope this helps!",
+  "Feel free to...".
+
+### Template-shape smell
 
 - Uniform "**Label**: description" bullets across every section.
-- A comparison table whether or not the comparison earns its place.
-- Predictable, evenly-weighted section sequence regardless of what the content warrants.
-- Feature lists placed before any usage example.
-- Headers for content that doesn't need to be split out.
+- A comparison table that has not earned its place.
+- Predictable, evenly weighted sections regardless of content.
+- Feature lists before any usage example.
+- Headers for content that does not need to be split out.
 
-## Instead
+### Writer-side metadata smell
 
-- Lead with a concrete example or demonstration where possible — show what using or reading this feels
-  like before describing it.
-- Weight sections asymmetrically. Interesting parts get space; standard parts compress; empty parts get cut.
-- Prose where prose carries meaning better than bullets.
-- State opinions and tradeoffs when they're load-bearing; skip them when they aren't.
+- Internal development codenames, branch names, prompt/session artifacts, or private shorthand that do not help
+  readers identify the thing being discussed.
+- Process narrative such as "I looked at...", "next I will...", "we decided to...", or "the agent found...".
+- Engineering reasoning that does not change how the reader should use, review, or trust the work.
+- Meta-explanations of the writing task itself, unless the document is explicitly about that process.
 
-## Allowed and encouraged storytelling
+### Defensive storytelling smell
 
-- 设计动机 / design motivation (why this choice).
-- 设计取舍 / design tradeoffs (why not the alternative).
-- 已知局限 / known limitations (what's out of scope).
+- Problem-solution arcs that set up an exaggerated opponent just to defeat it.
+- "We chose X over Y because Z" when the rejected alternative is not relevant to the reader.
+- Chains like "we did X because Y, but Z, so W" when the chain is not itself the point.
 
-This is the "authorial judgment" the register table allows for README. Marketing-voice variants of
-storytelling (兜售式开场, problem→solution 叙事弧, 物化抽象) belong above under § No marketing voice, not here.
+## Cross-language conventions
 
-Technical introductions favor WHY over HOW. README isn't API documentation — avoid large mechanical
-breakdowns. HOW belongs in engineering docs (CLAUDE.md / docs/).
+Some structural conventions from English open-source docs do not transfer cleanly to Chinese. For example,
+Chinese open-source docs often open declaratively with what the project is instead of a problem narrative such
+as "X is tedious, Y is incompatible, so we built Z".
 
-## Convention drift across languages
-
-Some structural conventions are English-OSS habits that don't transfer cleanly to Chinese:
-- Problem-narrative opener ("X 太繁琐，Y 不兼容，所以我们做了 Z" / "Existing tools are slow, so we built...")
-  — Chinese OSS more often opens declaratively with what the project is.
-- "We chose X over Y because Z" tradeoff justification — in Chinese, factual description often carries the
-  same load.
-
-The reverse applies too: don't make English READMEs sound like Chinese ones for symmetry's sake.
+The reverse applies too. Do not make English READMEs sound like Chinese READMEs for symmetry's sake.
