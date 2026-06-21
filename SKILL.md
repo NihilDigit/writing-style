@@ -25,6 +25,15 @@ examples and banned phrases are diagnostics, not the organizing principle of the
 Write from the reader's side. Expose the information hierarchy the reader needs; leave out the writer's
 working session unless it changes how the reader should use, review, or trust the work.
 
+## Audience and selection
+
+Use the intended reader as a private constraint for selection, emphasis, and order. Write for what that reader
+needs to understand, decide, verify, or do next; do not carry every source note into the final prose.
+
+Treat audience, judges, reviewers, rubrics, assignment requirements, and scoring criteria as invisible inputs
+unless the requested genre explicitly requires a rubric mapping. Satisfy them through the artifact's framing,
+evidence, examples, terminology, and omissions. Do not narrate that the prose is serving them.
+
 ## Scope
 
 Use this skill for text that will be read beyond the immediate author or current chat:
@@ -181,6 +190,15 @@ English stock phrases:
 - Process narrative such as "I looked at...", "next I will...", "we decided to...", or "the agent found...".
 - Engineering reasoning that does not change how the reader should use, review, or trust the work.
 - Meta-explanations of the writing task itself, unless the document is explicitly about that process.
+
+### Audience-scaffolding smell
+
+- Visible planning phrases such as "为了让读者理解", "面向 XX 读者", "评委可以看到", "根据 XX 要求",
+  "本作品满足 XX 标准", or "the reader should notice".
+- Sentences that announce the audience, rubric, or scoring target instead of making the relevant quality
+  evident in the artifact itself.
+- Source-dump structure: including all provided background, requirements, or implementation notes because they
+  were supplied, rather than because the target reader needs them.
 
 ### Defensive storytelling smell
 
