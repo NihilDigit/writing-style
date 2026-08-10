@@ -6,10 +6,11 @@ description: >
   beyond the immediate author. Use this skill to match register, write in the target language's own habits,
   keep technical terms in their canonical form, expose reader-useful information hierarchy, and remove
   translation smell, marketing filler, AI-essay filler, process narrative, and defensive storytelling.
+  Also covers UI copy and string resources, release notes, repository descriptions, and taglines, and governs
+  the register of code comments, commit messages, and code review notes.
   Applies to both Chinese and English. Triggers: "write a README", "draft a blog post", "polish this doc",
-  "改一下这段文案", "把这段写成 README", and any prose deliverable meant for external readers.
-  Do NOT use for: chat responses, code comments, internal commit messages, code review notes, or prose that
-  stays inside the immediate working session.
+  "改一下这段文案", "把这段写成 README", and any text that outlives the conversation.
+  Do NOT use for: chat responses and private scratch writing.
 ---
 
 # Writing style
@@ -42,9 +43,13 @@ Use this skill for text that will be read beyond the immediate author or current
 - Design docs, blog posts, public PRs and issues.
 - Slides, broadcast Slack/email messages, and marketing copy.
 - Polishing or rewriting prose for external readers.
+- UI copy and string resources, release notes, repository descriptions, and taglines.
 
-Do not use it for text that stays inside the immediate working session: chat replies, code comments, internal
-commit messages, code review notes, or private scratch writing.
+The register rules also govern text that persists past the session even when this skill is not invoked
+explicitly: code comments, commit messages, and code review notes. Their content conventions belong to the
+project; their register belongs here.
+
+Do not use it for text that stays inside the conversation: chat replies and private scratch writing.
 
 ## Register
 
@@ -55,10 +60,18 @@ Match the situation. "Native" means appropriate to the context, not automaticall
 | Commit / PR / code comment / design doc | 书面语，如“移除”“优化”“修复” | Formal-concise, verb-first, such as Remove / Optimize / Fix |
 | Paper / lab report | 学术书面语，如“本文”“实验表明” | Academic, such as We propose / Results indicate |
 | README / public docs | 书面语，可以有作者判断 | Formal but not stiff; authorial judgment is allowed |
-| Chat / IM | 口语，如“改完了”“跑一下看看” | Casual, such as done / try it / lmk |
 
 For Chinese technical writing, aim for a restrained style with explicit judgment and accurate terminology,
 roughly in the register of 阮一峰 or 廖雪峰.
+
+Chinese 口语 markers, which read as unserious and run longer than the written form:
+
+- Second-person narration of what the reader experiences: "回到你进来时那一屏" → "返回进入时的页面".
+- Colloquial aspect and modal particles: "一直没加载出来" → "未加载"; "就行了"、"其实"、"的话".
+- Interaction written as dialogue rather than as behaviour.
+
+Length is the mechanical check: the written form of the same claim is shorter. If a rewrite gets longer,
+it has usually added hedging rather than register.
 
 ## Language
 
@@ -151,10 +164,14 @@ Chinese warning signs:
 - 赋能、抓手、闭环、对齐、颗粒度、心智、拉齐、复用、抽象一下, unless the context explicitly uses that register.
 - 装腔形容词 such as 极致、无缝、深度、本质、本质上是、生态.
 - 三段式排比: "不仅 X，而且 Y，更 Z" or "更 X，更 Y，更 Z".
+- 否定对比句式: "X 是 A，不是 B"、"不是 A，而是 B"、"与其说是 A，不如说是 B"。直接陈述 A 即可；
+  B 通常是作者自设的假想对立面，读者并没有那个误解。例："密度档和帧率上限是选项，不是代码里的分叉。"
+  → "密度档和帧率上限是选项。" 当 B 是读者真会走错的那条路时保留；判据见 defensive storytelling
+  smell 里关于 rejected alternative 的那条。
 - 反问句开篇 or 引导式提问: "你是否曾经..." or "想象一下...".
 - Light or slogan-like endings such as "免得返工", "省时间", "轻松搞定", "快速上手", "跟着 X 走", "X 也响",
-  "不漂移", and "一把梭". A short slogan may occasionally keep one colloquial turn; formal paragraphs should
-  use formal wording.
+  "不漂移", and "一把梭". Taglines get no exemption: they are short and prominent, which makes a colloquial
+  turn there more visible, not less.
 - 兜售式开场: "想象一下...", "在这个时代...", "市面上的工具都没解决 X".
 - 物化抽象 or 拟人化表达: "把决策记成一本明账", "让代码自己说话".
 
@@ -190,6 +207,10 @@ English stock phrases:
 - Process narrative such as "I looked at...", "next I will...", "we decided to...", or "the agent found...".
 - Engineering reasoning that does not change how the reader should use, review, or trust the work.
 - Meta-explanations of the writing task itself, unless the document is explicitly about that process.
+- 项目状态自述与验证自述: "No version has been released yet."、"本机不参与"、
+  "哪些接口接受何种参数、哪些会被风控拒绝，该项目均已逐一验证。"
+
+判据: 这句话删掉之后，读者的行动或判断会变吗？不会就删。
 
 ### Audience-scaffolding smell
 
